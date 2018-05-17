@@ -10,7 +10,7 @@ class MeasurementsController extends Controller
 {
     public function index()
     {
-        return measurements::all()->order_by('created_at', 'desc');
+        return measurements::order_by('created_at', 'desc')-first();
         
     }
  
