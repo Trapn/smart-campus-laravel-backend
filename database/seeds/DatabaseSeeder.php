@@ -26,10 +26,6 @@ class DatabaseSeeder extends Seeder
 class SmartCampusDummySeeder extends Seeder {
 
     public function run() {
-        DB::table('measurements')->delete();
-        DB::table('sensors')->delete();
-        DB::table('devices')->delete();
-        DB::table('locations')->delete();
         
         $roomEmbedded = locations::create(array(
             'name'         => 'Embedded systems',
