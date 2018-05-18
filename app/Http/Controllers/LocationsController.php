@@ -31,20 +31,13 @@ class LocationsController extends Controller
         }
     }
     public function locationData($roomnumber){
-        // Retrieve latest temperature, humidity, movement on location
-        // get all latest measurements on that types, Get all 3 sensor types, get all devices on the location
         $sensor_types = ['temperature', 'humidity', 'movement'];
         $location = locations::where('roomnumber', $roomnumber)->firstOrFail();
         $device = devices::where('location_id', $location->id)->firstOrFail();
-//        if($device == null){
             foreach($sensor_types as $sensor_type){
                 $sensorId = sensors::where('name' , $sensor_type)->value('id');
                 $measurements[$sensor_type] = measurements::where('sensor_id', $sensorId)->get();
             }
             return $measurements;
-//        } else {
-//            return "No device is this room";
-//        }
     }
-
 }
