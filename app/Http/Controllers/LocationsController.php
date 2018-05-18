@@ -30,12 +30,12 @@ class LocationsController extends Controller
             echo "Wrong format to store";
         }
     }
-    public function locationData($location){
+    public function locationData($roomnumber){
         // Retrieve latest temperature, humidity, movement on location
         // get all latest measurements on that types, Get all 3 sensor types, get all devices on the location
         $sensor_types = ['temperature', 'humidity', 'movement'];
-        $roomnumber = $request->input('roomnumber');
-        $location = locations::where('roomnumber', $roomnumber)->firstOrFail();
+        $location = locations::find($roomnumber);
+        //$location = locations::where('roomnumber', $roomnumber)->firstOrFail();
         $device = devices::where('location_id', $location->id)->firstOrFail();
     }
 
