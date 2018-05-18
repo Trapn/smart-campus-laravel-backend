@@ -11,7 +11,6 @@ class MeasurementsController extends Controller
     public function index()
     {
         return measurements::orderBy('created_at', 'desc')->get();
-        
     }
  
     public function show($id)

@@ -25,6 +25,10 @@ class LocationsController extends Controller
         } else {
             echo "Wrong format to store";
         }
-        
     }
+    public function locationData($location){
+        
+
+    }
+
 }
