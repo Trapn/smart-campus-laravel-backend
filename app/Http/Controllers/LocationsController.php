@@ -36,6 +36,12 @@ class LocationsController extends Controller
         $sensor_types = ['temperature', 'humidity', 'movement'];
         $location = locations::where('roomnumber', $roomnumber)->firstOrFail();
         $device = devices::where('location_id', $location->id)->firstOrFail();
+        
+
+        foreach($sensor_types as $sensor_type){
+            $measurements[$sensor_type] = measurements::where('sensor_id', sensor::where('name' , $sensor_type)->get('id'))->get();
+          }
+          return $measurements;
     }
 
 }
