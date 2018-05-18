@@ -36,7 +36,9 @@ class LocationsController extends Controller
         $device = devices::where('location_id', $location->id)->firstOrFail();
             foreach($sensor_types as $sensor_type){
                 $sensorId = sensors::where('name' , $sensor_type)->value('id');
-                $measurements[$sensor_type] = measurements::where('sensor_id', $sensorId)->get();
+                $measurements[$sensor_type] = measurements::where('sensor_id', $sensorId)
+                ->orderBy('created_at', 'desc')
+                ->get();
             }
             return $measurements;
     }
