@@ -41,7 +41,7 @@ Route::get('measurements/{id}', 'MeasurementsController@show');
 //Public locations routes
 Route::get('locations', 'LocationsController@index');
 Route::get('locations/{id}', 'LocationsController@show');
-Route::get('locations/room/{roomnumber}', 'locationData@show');
+Route::get('locations/room/{roomnumber}', 'LocationsController@locationData');
 //Public devices routes
 Route::get('devices', 'DevicesController@index');
 Route::get('devices/{id}', 'DevicesController@show');
