@@ -34,8 +34,7 @@ class LocationsController extends Controller
         // Retrieve latest temperature, humidity, movement on location
         // get all latest measurements on that types, Get all 3 sensor types, get all devices on the location
         $sensor_types = ['temperature', 'humidity', 'movement'];
-        $location = locations::find($roomnumber);
-        //$location = locations::where('roomnumber', $roomnumber)->firstOrFail();
+        $location = locations::where('roomnumber', $roomnumber)->firstOrFail();
         $device = devices::where('location_id', $location->id)->firstOrFail();
     }
 
