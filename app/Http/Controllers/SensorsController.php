@@ -29,10 +29,6 @@ class SensorsController extends Controller
 
             $sensor->save();
 
-
-            //$data = ['sensor_name' => $request->input('sensor_name'),
-             //'measurement_unit' => $request->input('measurement_unit'),'device_id' => 1];
-            //return devices::create($data);
         } else {
             echo "Wrong format to store";
         }
