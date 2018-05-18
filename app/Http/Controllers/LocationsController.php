@@ -39,7 +39,7 @@ class LocationsController extends Controller
         
 
         foreach($sensor_types as $sensor_type){
-            $measurements[$sensor_type] = measurements::where('sensor_id', sensor::where('name' , $sensor_type)->get('id'))->get();
+            $measurements[$sensor_type] = measurements::where('sensor_id', sensors::where('name' , $sensor_type)->get('id'))->get();
           }
           return $measurements;
     }
