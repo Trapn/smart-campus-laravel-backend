@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\locations as LocationsResource;
+use App\measurements;
+use App\sensors;
 use App\locations;
+use App\devices;
+
 
 class LocationsController extends Controller
 {
@@ -27,8 +31,12 @@ class LocationsController extends Controller
         }
     }
     public function locationData($location){
-        
-
+        // Retrieve latest temperature, humidity, movement on location
+        // get all latest measurements on that types, Get all 3 sensor types, get all devices on the location
+        $sensor_types = ['temperature', 'humidity', 'movement'];
+        $roomnumber = $request->input('roomnumber');
+        $location = locations::where('roomnumber', $roomnumber)->firstOrFail();
+        $device = devices::where('location_id', $location->id)->firstOrFail();
     }
 
 }
