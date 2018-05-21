@@ -45,8 +45,8 @@ class LocationsController extends Controller
     public function locationTemperature($roomnumber){
         getLocationData('temperature', $roomnumber);
     }
-    
-    public function getLocationData ($sensor_type, $roomnumber){
+
+    public function getLocationData($sensor_type, $roomnumber) {
         $location = locations::where('roomnumber', $roomnumber)->firstOrFail();
         $device = devices::where('location_id', $location->id)->firstOrFail();
 
