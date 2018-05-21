@@ -42,4 +42,14 @@ class LocationsController extends Controller
             }
             return [$measurements];
     }
+    public function locationTemperature($roomnumber){
+        $location = locations::where('roomnumber', $roomnumber)->firstOrFail();
+        $device = devices::where('location_id', $location->id)->firstOrFail();
+
+        $sensorId = sensors::where('name' , 'temperature')->value('id');
+        $measurement = measurements::where('sensor_id', $sensorId)
+        ->orderBy('created_at', 'desc')
+        ->get();
+        return $measurement;
+    }
 }
