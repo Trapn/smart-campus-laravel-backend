@@ -40,6 +40,6 @@ class LocationsController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
             }
-            return $measurements;
+            return [$measurements];
     }
 }
