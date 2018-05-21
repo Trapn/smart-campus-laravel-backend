@@ -42,8 +42,15 @@ class LocationsController extends Controller
             }
             return [$measurements];
     }
+
     public function locationTemperature($roomnumber){
         return $this->getLocationData('temperature', $roomnumber);
+    }
+    public function locationHumidity($roomnumber){
+        return $this->getLocationData('humidity', $roomnumber);
+    }
+    public function locationMovement($roomnumber){
+        return $this->getLocationData('movement', $roomnumber);
     }
 
     private function getLocationData($sensor_type, $roomnumber) {
