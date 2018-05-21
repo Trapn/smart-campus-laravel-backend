@@ -1,6 +1,9 @@
 # Smart Campus Laravel Backend
 In this project i'm working with laravel 5.6
 
+:heavy_exclamation_mark: :heavy_exclamation_mark: :heavy_exclamation_mark: All API's CAN be accessed without the token (all API's with this :closed_lock_with_key: symbol) for test purpose, please ignore this section (for as long this warning is in the readme)
+ in this readme :heavy_exclamation_mark: :heavy_exclamation_mark: :heavy_exclamation_mark:
+
 Specs and guides can be found on following link:    
 https://laravel.com/docs/5.6
 
@@ -82,6 +85,13 @@ the format for postings should look like this:
     "description": "theDescriptionOffTheClassroom"
 }
 ```
+##### Getting data on location
+  
+* **/api/locations/room/{roomnumber}** (GET REQUEST returns all temperature, humidity, movement measured on location, latest first)
+* **/api/locations/room/{roomnumber}/temperature** (GET REQUEST returns all temperature measured on location, latest first)
+* **/api/locations/room/{roomnumber}/humidity** (GET REQUEST returns all humidity measured on location, latest first)
+* **/api/locations/room/{roomnumber}/movement** (GET REQUEST returns all movement measured on location, latest first)
+
 ### Devices:
 
 * **/api/devices/{id}**
