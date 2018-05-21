@@ -39,12 +39,20 @@ ONLY if you did something wrong with adding info to the database run this before
 
 # App link:
 
+### Backend:
+
 **https://projectwerk2.herokuapp.com/**  
+  
+Or can be found on:  
+**https://backend.vives-smart-campus.be/** ( :heavy_exclamation_mark: i don't own this server so it's not always up to date)  
   
 If you run this local you can start the server by:
 ```php artisan serve``` 
 The app can be found on:
 ```http://localhost:8000/``` 
+  
+### Frontend:
+**https://vives-smart-campus.be/** ( :heavy_exclamation_mark: i don't own this server so it's not always up to date, also not my work)
 
 ## API Routes:
 
