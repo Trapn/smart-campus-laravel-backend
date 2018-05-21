@@ -43,6 +43,8 @@ Route::get('locations', 'LocationsController@index');
 Route::get('locations/{id}', 'LocationsController@show');
 Route::get('locations/room/{roomnumber}', 'LocationsController@locationData');
 Route::get('locations/room/temperature/{roomnumber}', 'LocationsController@locationTemperature');
+Route::get('locations/room/humidity/{roomnumber}', 'LocationsController@locationHumidity');
+Route::get('locations/room/movement/{roomnumber}', 'LocationsController@locationMovement');
 //Public devices routes
 Route::get('devices', 'DevicesController@index');
 Route::get('devices/{id}', 'DevicesController@show');
