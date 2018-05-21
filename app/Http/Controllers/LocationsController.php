@@ -43,7 +43,7 @@ class LocationsController extends Controller
             return [$measurements];
     }
     public function locationTemperature($roomnumber){
-        $this->getLocationData('temperature', $roomnumber);
+        return $this->getLocationData('temperature', $roomnumber);
     }
 
     private function getLocationData($sensor_type, $roomnumber) {
