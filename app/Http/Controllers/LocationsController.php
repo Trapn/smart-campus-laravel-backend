@@ -43,10 +43,10 @@ class LocationsController extends Controller
             return [$measurements];
     }
     public function locationTemperature($roomnumber){
-        getLocationData('temperature', $roomnumber);
+        $this->getLocationData('temperature', $roomnumber);
     }
 
-    public function getLocationData($sensor_type, $roomnumber) {
+    private function getLocationData($sensor_type, $roomnumber) {
         $location = locations::where('roomnumber', $roomnumber)->firstOrFail();
         $device = devices::where('location_id', $location->id)->firstOrFail();
 
@@ -55,7 +55,6 @@ class LocationsController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
         return $measurement;
-
     }
 
 }
