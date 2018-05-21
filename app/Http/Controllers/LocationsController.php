@@ -32,15 +32,10 @@ class LocationsController extends Controller
     }
     public function locationData($roomnumber){
         $sensor_types = ['temperature', 'humidity', 'movement'];
-        $location = locations::where('roomnumber', $roomnumber)->firstOrFail();
-        $device = devices::where('location_id', $location->id)->firstOrFail();
             foreach($sensor_types as $sensor_type){
-                $sensorId = sensors::where('name' , $sensor_type)->value('id');
-                $measurements[$sensor_type] = measurements::where('sensor_id', $sensorId)
-                ->orderBy('created_at', 'desc')
-                ->get();
+                $measurements[$sensor_type] = $this->getLocationData($sensor_type, $roomnumber);
             }
-            return [$measurements];
+            return $measurements;
     }
 
     public function locationTemperature($roomnumber){
