@@ -26,8 +26,6 @@ class LocationsController extends Controller
     {
         if ($request->has(['name', 'roomnumber'])) {
             return locations::create($request->all());
-        } else {
-            echo "Wrong format to store";
         }
     }
     public function locationData($roomnumber){
